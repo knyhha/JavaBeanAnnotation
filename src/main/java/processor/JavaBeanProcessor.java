@@ -36,15 +36,12 @@ public class JavaBeanProcessor extends AbstractProcessor {
     }
 
     private void generateJavaBeanFile(Element element) {
-
         String className = element.getSimpleName().toString();
-
         String packageName = processingEnv
                 .getElementUtils()
                 .getPackageOf(element)
                 .getQualifiedName()
                 .toString();
-
         String beanName = className + "Bean";
         String beanFullName = packageName + "." + beanName;
 
@@ -114,7 +111,7 @@ public class JavaBeanProcessor extends AbstractProcessor {
 
             writer.println("}");
         } catch (Exception e) {
-            e.printStackTrace();
+            System.err.println("Error: " + e.getMessage());
         }
     }
 }
